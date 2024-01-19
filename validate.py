@@ -4,7 +4,7 @@ import time
 import logging
 import coloredlogs
 
-logger = logging.getLogger(__file__)
+logger = logging.getLogger("validate.py")
 coloredlogs.install(level="DEBUG", logger=logger)
 
 EXP_NO = 101
