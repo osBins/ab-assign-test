@@ -3,8 +3,12 @@ import uuid
 import matplotlib.pyplot as plt
 import time
 
+import logging, coloredlogs
+logger = logging.getLogger("test.py")
+coloredlogs.install(level='DEBUG', logger=logger)
+
 EXP_NO = 101
-VARIATION_LIST = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+VARIATION_LIST = [0, 1, 2, 3]
 VARIATION_LIST_SIZE = len(VARIATION_LIST)
 
 def create_user():
@@ -32,7 +36,7 @@ print(time.perf_counter() - start)
 
 count_arr = [arr.count(var) for var in VARIATION_LIST]
 
-print("Count array - ", count_arr)
+logger.info("Count array - %s", count_arr)
 
 fig = plt.figure(figsize=(10, 7))
 plt.pie(count_arr, labels=VARIATION_LIST)
