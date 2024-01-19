@@ -1,6 +1,7 @@
 import hashlib
 import uuid
 import matplotlib.pyplot as plt
+import time
 
 EXP_NO = 101
 def create_user():
@@ -14,7 +15,8 @@ def join_str(str1, str2):
 
 arr = []
 
-for i in range(10000):
+start = time.perf_counter()
+for i in range(20000):
     user = create_user()
 
     string = join_str(user, EXP_NO)
@@ -23,6 +25,7 @@ for i in range(10000):
     m.update(bytes(string, encoding="utf-8"))
     hash = m.hexdigest()
     arr.append(int(hash, 16) % 3)
+print(time.perf_counter() - start)
 
 count = [arr.count(0), arr.count(1), arr.count(2)]
 print(count)
