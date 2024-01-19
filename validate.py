@@ -10,6 +10,7 @@ ids = []
 with open("test.csv", "r") as f:
     data = f.read()
     ids = data.split(',')
+    ids.remove('')
     
 for id in ids:
     string = join_str(id, EXP_NO)

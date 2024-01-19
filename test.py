@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 EXP_NO = 101
 def create_user():
     user_id = uuid.uuid4()
-    with open("test.csv", "a") as f:
+    with open("test.csv", "a+") as f:
         f.write(str(user_id) + ',')
     return user_id
 
@@ -14,7 +14,7 @@ def join_str(str1, str2):
 
 arr = []
 
-for i in range(1000):
+for i in range(10000):
     user = create_user()
 
     string = join_str(user, EXP_NO)
