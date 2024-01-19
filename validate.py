@@ -2,6 +2,8 @@ import hashlib
 import time
 
 EXP_NO = 101
+VARIATION_LIST = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+VARIATION_LIST_SIZE = len(VARIATION_LIST)
 
 def join_str(str1, str2):
     return (str(str1) + str(str2))
@@ -23,9 +25,10 @@ for id in ids:
     m = hashlib.sha256()
     m.update(bytes(string, encoding="utf-8"))
     hash = m.hexdigest()
-    arr.append(int(hash, 16) % 3)
+    arr.append(int(hash, 16) % VARIATION_LIST_SIZE)
 print(time.perf_counter() - start)
 
-count = [arr.count(0), arr.count(1), arr.count(2)]
-print(count) 
+count_arr = [arr.count(var) for var in VARIATION_LIST]
+
+print("Count array - ", count_arr) 
     
