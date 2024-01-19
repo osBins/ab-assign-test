@@ -3,22 +3,27 @@ import uuid
 import matplotlib.pyplot as plt
 import time
 
-import logging, coloredlogs
+import logging
+import coloredlogs
+
 logger = logging.getLogger("test.py")
-coloredlogs.install(level='DEBUG', logger=logger)
+coloredlogs.install(level="DEBUG", logger=logger)
 
 EXP_NO = 101
 VARIATION_LIST = [0, 1, 2, 3]
 VARIATION_LIST_SIZE = len(VARIATION_LIST)
 
+
 def create_user():
     user_id = uuid.uuid4()
     with open("test.csv", "a+") as f:
-        f.write(str(user_id) + ',')
+        f.write(str(user_id) + ",")
     return user_id
 
+
 def join_str(str1, str2):
-    return (str(str1) + str(str2))
+    return str(str1) + str(str2)
+
 
 arr = []
 
@@ -41,4 +46,3 @@ logger.info("Count array - %s", count_arr)
 fig = plt.figure(figsize=(10, 7))
 plt.pie(count_arr, labels=VARIATION_LIST)
 plt.show()
-
